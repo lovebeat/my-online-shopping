@@ -1,5 +1,7 @@
 package ngoc.thach.myshoppingbackend;
 
+import org.springframework.context.annotation.Configuration;
+
 /**
  * Hello world!
  *

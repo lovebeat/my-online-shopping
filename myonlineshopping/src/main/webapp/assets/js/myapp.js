@@ -10,7 +10,8 @@ $(function(){
 			$('#listProducts').addClass('active');
 			break;
 		default:
-			$('#navbar-brand').addClass('active');
+			$('#listProducts').addClass('active');
+			$('#a_'+menu).addClass('active');
 			break;
 	}
 
