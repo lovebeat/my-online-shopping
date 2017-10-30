@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ngoc.thach.myshoppingbackend.dao.ProductDAO;
 import ngoc.thach.myshoppingbackend.dto.Product;
-@Repository("ProductDAO")
+@Repository("productDAO")
 @Transactional
 public class ProductDAOImpl implements ProductDAO {
 	
@@ -77,7 +77,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<Product> listActiveProducts() {
-		String selectActiveProducts = "FROM Product WHERE active = :active";
+		String selectActiveProducts = "FROM Product WHERE isActive = :active";
 		
 		return sessionFactory.getCurrentSession()
 				.createQuery(selectActiveProducts, Product.class)
@@ -87,7 +87,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<Product> listActiveProductsByCategory(int categoryId) {
-		String selectActiveViaCategoryId = "FROM Product WHERE active= :active AND categoryId = :categoryId";
+		String selectActiveViaCategoryId = "FROM Product WHERE isActive= :active AND categoryId = :categoryId";
 		
 		return sessionFactory
 					.getCurrentSession()
@@ -102,7 +102,7 @@ public class ProductDAOImpl implements ProductDAO {
 		// TODO Auto-generated method stub
 		return sessionFactory
 				.getCurrentSession()
-					.createQuery("FROM Product WHERE active = :active ORDER BY id", Product.class)
+					.createQuery("FROM Product WHERE isActive = :active ORDER BY id", Product.class)
 						.setParameter("active", true)
 							.setFirstResult(0)
 							.setMaxResults(count)

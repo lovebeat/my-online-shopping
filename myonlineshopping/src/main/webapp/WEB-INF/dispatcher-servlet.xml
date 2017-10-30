@@ -11,8 +11,8 @@
    	http://www.springframework.org/schema/mvc
    	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-	<context:component-scan base-package="ngoc.thach.myonlineshopping.controller" />
-	<context:component-scan base-package="ngoc.thach.myshoppingbackend" />
+	<context:component-scan base-package="ngoc.thach.myonlineshopping" /><!-- scan for front-end project -->
+	<context:component-scan base-package="ngoc.thach.myshoppingbackend" /><!-- Scan for back-end project -->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/"/>
 		<property name="suffix" value=".jsp"/>
