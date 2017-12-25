@@ -65,13 +65,17 @@ public class ProductTestCase {
 //				productDAO.listActiveProductsByCategory(3).size());
 //	}
 
+//	@Test
+//	public void testUpdateProduct() {
+//
+//		product = productDAO.get(1);
+//		product.setQuantity(0);
+//		assertEquals("Successfully update category", true, productDAO.update(product));
+//
+//	}
 	@Test
-	public void testUpdateProduct() {
-
-		product = productDAO.get(1);
-		product.setQuantity(0);
-		assertEquals("Successfully update category", true, productDAO.update(product));
-
+	public void testSetMaxQuery() {
+		assertEquals("Successfully update category", 2, productDAO.getLimit().size());
 	}
 
 }

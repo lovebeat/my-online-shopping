@@ -76,6 +76,27 @@ VALUES ('PRDMNO123PQRX', ' Macbook Pro', 'apple', 'This is one of the best lapto
 
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id)
 VALUES ('PRDABCXYZDEFX', 'Dell Latitude E6510', 'dell', 'This is one of the best laptop series from dell that can be used!', 48000, 5, 1, 1, 3 );
-
+--address table to store the shippng and billing address for user
+CREATE TABLE address (
+	id int IDENTITY,
+	user_id int,
+	address_line_one VARCHAR(100),
+	address_line_two VARCHAR(100),
+	city VARCHAR(50),
+	state VARCHAR(20),
+	postal_code VARCHAR(10),
+	is_billing BIT,
+	is_shipping BIT,
+	CONSTRAINT fk_address_user_id FOREIGN KEY (user_id) REFERENCES user_detail(user_id),
+	CONSTRAINT pk_address_id PRIMARY KEY (id)
+);
+CREATE TABLE cart (
+	id int IDENTITY,
+	user_id int,
+	grand_total DECIMAL(10,2),
+	cart_lines int,
+	CONSTRAINT fk_cart_user_id FOREIGN KEY (user_id) REFERENCES user_detail(user_id),
+	CONSTRAINT pk_cart_id PRIMARY KEY (id)
+);
 
 

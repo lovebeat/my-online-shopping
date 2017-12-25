@@ -108,5 +108,12 @@ public class ProductDAOImpl implements ProductDAO {
 							.setMaxResults(count)
 								.getResultList();
 	}
+	//this for test need be deleted after
+	@Override
+	public List<Product> getLimit() {
+		return sessionFactory.getCurrentSession()
+				.createQuery("FROM Product", Product.class)
+				.getResultList().subList(0, 1);
+	}
 
 }

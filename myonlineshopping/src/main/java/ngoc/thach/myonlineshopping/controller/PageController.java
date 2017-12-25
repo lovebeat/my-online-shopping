@@ -107,7 +107,7 @@ public class PageController {
 			throw new ProductNotFoundException();
 		}
 		
-		product.setView(product.getView()+1);
+		product.setViews(product.getViews()+1);
 		
 		//update the view count
 		productDao.update(product);
@@ -118,6 +118,19 @@ public class PageController {
 		mv.addObject("userClickShowProduct", true);
 		return mv;
 	}
+	
+	/*
+	 * for login
+	 * 
+	 */
+	@RequestMapping(value = "/login")
+	public ModelAndView login() {
+		ModelAndView mv = new ModelAndView("login");
+		mv.addObject("title", "Login");
+		
+		return mv;
+	}
+	
 	
 	
 }
